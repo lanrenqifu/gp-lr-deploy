@@ -1,0 +1,35 @@
+{
+  "name": "gp-lr-deploy",
+  "version": "0.1.0",
+  "main": "index.js",
+  "description": "deploy static resource",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "lr-util-debug": "^0.1.0",
+    "lr-util-file": "^0.1.0",
+    "lr-upload-file": "^0.1.0",
+    "gulp-util": "^3.0.4",
+    "q": "^1.4.1",
+    "through2": "^0.6.5",
+    "wurl": "^2.0.1",
+    "lodash": "^3.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lanrenqifu/gp-lr-deploy.git"
+  },
+  "keywords": [
+    "util",
+    "javascript"
+  ],
+  "author": {
+    "name": "lanren"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lanrenqifu/gp-lr-deploy/issues"
+  },
+  "homepage": "https://github.com/lanrenqifu/gp-lr-deploy"
+}

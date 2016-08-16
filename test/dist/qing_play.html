@@ -1,0 +1,146 @@
+<?
+    StaticCommon::includeModule("yx_header.html",array('userinfo'=>$userinfo, 'css'=>$css, 'category'=>'game','header_type'=>'main', meta=>array('title'=>$page_title,'desc'=>$page_desc,'keywords'=>$page_keywords)));
+//上静床的js文件
+$qstatic->addJS(array(
+'/js/lib/jquery.js'
+));
+$qstatic->addCss(array(
+'public/css/normalize.css',
+'public/css/qing-play-main.css'
+));
+?>
+<div class="qing-play-container clearfix">
+    <div class="qing-play-game-container haslogin container">
+        <div class="qing-play-info">
+            <div class="qing-play-title"><?=$game_data['name']?></div>
+            <div class="qing-play-desc"><span>游戏玩法：</span><?=$game_data['brief']?></div>
+        </div>
+        <div class="qing-play-tip">
+            <div class="qing-self-title qing-size-big">今日最佳排名</div>
+            <div class="qing-self-rank">--</div>
+            <div class="qing-self-label qing-size-big">最佳成绩</div>
+            <div class="qing-self-today">
+                <p class="qing-size-small">今日最佳</p>
+                <p class="qing-today-score">--</p>
+            </div>
+            <div class="qing-self-total">
+                <p class="qing-size-small">历史最佳</p>
+                <p class="qing-total-score">--</p>
+            </div>
+        </div>
+        <div class="qing-play-tip-login">
+            <div class="qing-play-login-text">
+                <p><a>登录</a>后可以</p>
+                <p>参与游戏排行</p>
+            </div>
+        </div>
+        <div id="qing_play_game" class="qing-play-game">
+
+        </div>
+        <div class="qing-play-share clearfix">
+            <div class="qing-pull-left">分享到</div>
+            <!-- JiaThis Button BEGIN -->
+            <div class="jiathis_style">
+                <a class="jiathis_button_qzone"></a>
+                <a class="jiathis_button_tsina"></a>
+                <a class="jiathis_button_tqq"></a>
+                <a class="jiathis_button_weixin"></a>
+                <a class="jiathis_button_renren"></a>
+                <a class="jiathis_button_xiaoyou"></a>
+                <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+                <a class="jiathis_counter_style"></a>
+            </div>
+            <!-- JiaThis Button END -->
+        </div>
+    </div>
+    <div class="qing-play-ranklist-container container"></div>
+    <div class="comment-container">
+        <h2>评论</h2>
+
+        <div class="comment-list clearfix">
+
+        </div>
+
+        <div class="comment-input-box clearfix">
+            <div class="comment-avatar">
+                <div class="comment-avatar-inner">
+                    <img src="http://p0.qhimg.com/d/inn/e0f22cc3/default-avatar.png"/>
+                </div>
+            </div>
+            <div class="comment-info clearfix">
+                <div class="comment-info-name">
+                    <span></span>
+                </div>
+                <div class="comment-info-time">
+                    <span></span>
+                </div>
+            </div>
+            <div class="comment-input">
+                <div class="comment-input-reply">
+
+                </div>
+                <textarea id="comment" maxlength="200"></textarea>
+                <div class="comment-success">评论成功</div>
+                <div class="comment-input-face"></div>
+                <div class="comment-pub">
+                    <a>发布</a>
+                </div>
+
+                <div class="face">
+                    <ul class="face_ul clearfix">
+                        <li data-type=":)" class="face_li"><img style="margin:5px" src="http://bbs.youxi.com/static/image/smiley/default/smile.gif"></li>
+                        <li data-type="(:" class="face_li"><img style="margin:5px" src="http://bbs.youxi.com/static/image/smiley/default/sad.gif"></li>
+                        <li data-type=":lol" class="face_li"><img style="margin:5px" src="http://bbs.youxi.com/static/image/smiley/default/lol.gif"></li>
+                        <li data-type=":'(" class="face_li"><img style="margin:5px" src="http://bbs.youxi.com/static/image/smiley/default/cry.gif"></li>
+                        <li data-type=":P" class="face_li"><img style="margin:5px" src="http://bbs.youxi.com/static/image/smiley/default/tongue.gif"></li>
+                        <li data-type=";P" class="face_li"><img style="margin:5px" src="http://bbs.youxi.com/static/image/smiley/default/titter.gif"></li>
+                        <li data-type=":L" class="face_li"><img style="margin:5px" src="http://bbs.youxi.com/static/image/smiley/default/sweat.gif"></li>
+                        <li data-type=":loveliness:" class="face_li"><img style="margin:5px" src="http://bbs.youxi.com/static/image/smiley/default/loveliness.gif"></li>
+                        <li data-type=":$" class="face_li"><img style="margin:5px" src="http://bbs.youxi.com/static/image/smiley/default/shy.gif"></li>
+                        <li data-type=":hug:" class="face_li"><img style="margin:5px" src="http://bbs.youxi.com/static/image/smiley/default/hug.gif"></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="comment-login-box">
+            请先<a>登录</a>再发表你的看法
+        </div>
+
+        <div id="page">
+
+        </div>
+
+    </div>
+    <div class="recommend-container">
+        <? foreach($recommendArray as $k=>$v){ ?>
+
+        <a class="recommend-item" href= "<?=$v['url'] ?>" target="_blank">
+            <h3>推荐</h3>
+            <div class="recommend-item-cont clearfix">
+                <div class="recommend-item-img">
+                    <img src="<?=$v['img'] ?>" />
+                </div>
+                <div class="recommend-item-text"><?=$v['desc'] ?></div>
+            </div>
+        </a>
+
+        <? } ?>
+    </div>
+</div>
+<script type="text/javascript" src="http://js.passport.qihucdn.com/5.0.2.js"></script>
+<script type="text/javascript" src="http://u.youxi.com/js/mylogin/yuc2.1.1.js"></script>
+<script>
+    var APP = <?=$frontData?>;
+</script>
+<script src="public/js/shared-qing-play.js"></script>
+<script src="public/js/main-qing-play.js"></script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<script src="http://s3.qhimg.com/!b1cbb137/youxi_monitor.js"></script>
+
+<?
+    StaticCommon::includeModule("youxi_footer.html",array('foot_type'=>'youxi_platform_foot','fri_ads'=>array()));
+StaticCommon::End();
+?>
+</body>
+</html>
